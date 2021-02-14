@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var trueButton: UIButton!
@@ -15,6 +16,8 @@ class ViewController: UIViewController {
     
     var quizBrain = QuizBrain()
 
+    // TODO: modify project and create multiple choice quiz
+    // https://www.udemy.com/course/ios-13-app-development-bootcamp/learn/lecture/16252942#overview
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +42,7 @@ class ViewController: UIViewController {
     @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getUserProgress()
+        scoreLabel.text = "Score: \(quizBrain.getScore())"
         
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
